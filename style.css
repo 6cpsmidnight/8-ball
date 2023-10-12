@@ -1,0 +1,76 @@
+:root {
+  --eight-ball-dimensions: calc(0.25vw + 30vh);
+  --eight-ball-border-length: calc(0.25vw + 12.5vh);
+  --answer-font-size: calc(1vw + 2vh);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: #e5e5e5;
+  text-align: center;
+  padding-top: 10px;
+}
+
+h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 50px;
+}
+
+#inputForm {
+  font-size: 20px;
+  /* padding: 5px; */
+}
+
+#input {
+  margin-top: 5px;
+}
+
+#input,
+#submitBtn {
+  font-size: 17px;
+}
+
+#eightBall {
+  background-color: #fff;
+  text-align: center;
+  border: solid var(--eight-ball-border-length) #000;
+  border-radius: 50%;
+  box-sizing: content-box;
+  width: var(--eight-ball-dimensions);
+  height: var(--eight-ball-dimensions);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#eightBallAnswer {
+  color: #000;
+  font-size: var(--answer-font-size);
+  font-weight: 900;
+  padding: 1vw;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nonexistent {
+  width: 0;
+  height: 0;
+  border: none;
+  font-size: 0;
+  opacity: 0;
+  border: none;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+  display: none;
+}
