@@ -2,32 +2,55 @@ const inputFormEl = document.getElementById("inputForm");
 const inputEl = document.getElementById("input");
 const submitBtn = document.getElementById("submitBtn");
 
+input.value = "";
+submitBtn.disabled = true;
+
+let sampleQuestionsSelIndex = 0;
+const sampleQuestions = [
+  "Do my parents love me?",
+  "Am I adopted?",
+  "Will I ever be good enough?",
+  "Will the pain ever end?",
+  "Will I ever stop crying myself to sleep?",
+];
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Tab") {
+    e.preventDefault();
+    input.value = sampleQuestions[sampleQuestionsSelIndex];
+    sampleQuestionsSelIndex < 4
+      ? sampleQuestionsSelIndex++
+      : (sampleQuestionsSelIndex = 0);
+  }
+});
+
 input.addEventListener("keyup", () => {
   if (input.value.length > 0) {
-    submitBtn.classList.remove("nonexistent");
-    eightBallEl.offsetTop = eightBallOffsetTop;
+    submitBtn.disabled = false;
   } else {
-    submitBtn.classList.add("nonexistent");
-    eightBallEl.offsetTop = eightBallOffsetTop;
+    submitBtn.disabled = true;
   }
 });
 
 const eightBallEl = document.createElement("div");
 eightBallEl.setAttribute("id", "eightBall");
-// eightBallEl.style.marginTop = submitBtnHeight + "px";
-console.log(eightBallEl.style.marginTop);
 document.querySelector("body").appendChild(eightBallEl);
-
-const eightBallOffsetTop = eightBallEl.offsetTop + "px";
 
 const eightBallAnswerEl = document.createElement("p");
 eightBallAnswerEl.setAttribute("id", "eightBallAnswer");
-eightBallEl.offsetTop = eightBallOffsetTop;
+eightBallAnswerEl.textContent = "8";
+eightBallEl.appendChild(eightBallAnswerEl);
 
-submitBtn.classList.add("nonexistent");
+inputFormEl.addEventListener("submit", (e) => {
+  e.preventDefault();
+  eightBallAnswer();
+});
+
+eightBallEl.addEventListener("click", eightBallAnswer);
 
 let randInt;
 const eightBallAnswers = [
+  // Positive answers
   "It is certain",
   "Without a doubt",
   "You may rely on it",
@@ -38,13 +61,13 @@ const eightBallAnswers = [
   "Yes",
   "Outlook good",
   "Signs point to yes",
-  ,
+  // Uncertain answers
   "Reply hazy try again",
   "Better not tell you now",
   "Ask again later",
   "Cannot predict now",
   "Concentrate and ask again",
-  ,
+  // Negative answers
   "Don’t count on it",
   "Outlook not so good",
   "My sources say no",
@@ -52,8 +75,8 @@ const eightBallAnswers = [
   "My reply is no",
 ];
 
-inputFormEl.addEventListener("submit", (e) => {
-  e.preventDefault();
-  randInt = Math.floor(Math.random() * 21);
+function eightBallAnswer() {
+  randInt = Math.floor(Math.random() * 20);
   eightBallAnswerEl.textContent = eightBallAnswers[randInt];
-});
+  eightBallAnswerEl.style.fontSize = "var(--answer-font-size)";
+}

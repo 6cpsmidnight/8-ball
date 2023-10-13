@@ -1,6 +1,7 @@
 :root {
-  --eight-ball-dimensions: calc(0.25vw + 30vh);
-  --eight-ball-border-length: calc(0.25vw + 12.5vh);
+  --eight-ball-dimensions: calc(10vw + 10vh);
+  --eight-ball-border-length: calc(5vw + 5vh);
+  --answer-placeholder-font-size: calc(4vw + 8vh);
   --answer-font-size: calc(1vw + 2vh);
 }
 
@@ -15,7 +16,7 @@ body {
     "Lucida Sans", Arial, sans-serif;
   background-color: #e5e5e5;
   text-align: center;
-  padding-top: 10px;
+  padding: 2vh 15vw 0 15vw;
 }
 
 h1 {
@@ -25,52 +26,37 @@ h1 {
 
 #inputForm {
   font-size: 20px;
-  /* padding: 5px; */
-}
-
-#input {
-  margin-top: 5px;
+  padding: 1vh 0;
 }
 
 #input,
 #submitBtn {
   font-size: 17px;
+  margin-top: 1vh;
 }
 
 #eightBall {
-  background-color: #fff;
   text-align: center;
   border: solid var(--eight-ball-border-length) #000;
   border-radius: 50%;
   box-sizing: content-box;
   width: var(--eight-ball-dimensions);
   height: var(--eight-ball-dimensions);
+  margin-top: 10px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
+  user-select: none;
 }
 
 #eightBallAnswer {
   color: #000;
-  font-size: var(--answer-font-size);
+  font-size: var(--answer-placeholder-font-size);
   font-weight: 900;
   padding: 1vw;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.nonexistent {
-  width: 0;
-  height: 0;
-  border: none;
-  font-size: 0;
-  opacity: 0;
-  border: none;
-  z-index: -1;
-  margin: 0;
-  padding: 0;
-  box-sizing: none;
-  display: none;
 }
