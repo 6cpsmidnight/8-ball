@@ -2,10 +2,6 @@ const inputFormEl = document.getElementById("inputForm");
 const inputEl = document.getElementById("input");
 const submitBtn = document.getElementById("submitBtn");
 
-input.value = "";
-submitBtn.disabled = true;
-
-let sampleQuestionsSelIndex = 0;
 const sampleQuestions = [
   "Do my parents love me?",
   "Am I adopted?",
@@ -13,6 +9,13 @@ const sampleQuestions = [
   "Will the pain ever end?",
   "Will I ever stop crying myself to sleep?",
 ];
+const defaultSampleQuestionIndex = Math.floor(Math.random() * 5);
+
+input.value = "";
+input.placeholder = sampleQuestions[defaultSampleQuestionIndex];
+submitBtn.disabled = true;
+
+let sampleQuestionsSelIndex = defaultSampleQuestionIndex;
 
 input.addEventListener("keydown", (e) => {
   if (e.key === "Tab") {
