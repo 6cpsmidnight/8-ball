@@ -1,7 +1,7 @@
 :root {
-  --eight-ball-dimensions: calc(5vw + 10vh);
-  --eight-ball-border-length: calc(2.5vw + 5vh);
-  --answer-placeholder-font-size: calc(2vw + 8vh);
+  --eight-ball-dimensions: calc(10vw + 10vh);
+  --eight-ball-border-length: calc(5vw + 5vh);
+  --answer-placeholder-font-size: calc(4vw + 8vh);
   --answer-font-size: calc(1vw + 2vh);
 }
 
@@ -16,7 +16,7 @@ body {
     "Lucida Sans", Arial, sans-serif;
   background-color: #e5e5e5;
   text-align: center;
-  padding: 15vh 15vw 0 15vw;
+  padding: 2vh 15vw 0 15vw;
 }
 
 h1 {

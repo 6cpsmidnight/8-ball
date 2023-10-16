@@ -1,4 +1,3 @@
-const mainEl = document.querySelector("main");
 const inputFormEl = document.getElementById("inputForm");
 const inputEl = document.getElementById("input");
 const submitBtn = document.getElementById("submitBtn");
